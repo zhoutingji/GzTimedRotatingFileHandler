@@ -13,7 +13,7 @@ class LoggerUtil(object):
     def instance(self, file_name=__name__):
         logger = logging.getLogger(file_name)
         logger.setLevel(logging.INFO)
-        fh = TarGzTimedRotatingFileHandler(filename="%s/logs/%s.log" % (
+        fh = GzTimedRotatingFileHandler(filename="%s/logs/%s.log" % (
             os.path.abspath(os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")), file_name),
                                         when='D', interval=1, backupCount=7, encoding='utf-8', gz=True)
         fh.setLevel(logging.DEBUG)
